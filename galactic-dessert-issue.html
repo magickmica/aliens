@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aliens Love Icecream — June 2026 · The Galactic Dessert Issue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Barlow+Condensed:wght@500;600;700;800&family=Karla:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF1F5;        /* sherbet cream */
+    --cream-2:#FFE4EF;      /* strawberry milk */
+    --pink:#FF4FA3;         /* hot taffy pink */
+    --peach:#FF9E5E;        /* tangerine sherbet */
+    --mint:#2FCDAD;         /* minty meteor */
+    --grape:#7A4FD8;        /* galaxy grape */
+    --sun:#FFC93A;          /* sunshine sprinkle */
+    --ink:#3A1B4D;          /* plum ink */
+    --display:'Shrikhand', cursive;
+    --head:'Barlow Condensed', sans-serif;
+    --body:'Karla', sans-serif;
+    --mono:'Space Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:1.06rem;line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--pink);color:#fff;}
+
+  /* sprinkle confetti backdrop */
+  .sprinkles{
+    position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+    background-image:
+      radial-gradient(3px 8px at 11% 14%, var(--pink) 60%, transparent),
+      radial-gradient(8px 3px at 31% 62%, var(--mint) 60%, transparent),
+      radial-gradient(3px 8px at 53% 28%, var(--sun) 60%, transparent),
+      radial-gradient(8px 3px at 72% 80%, var(--grape) 60%, transparent),
+      radial-gradient(3px 8px at 88% 20%, var(--peach) 60%, transparent),
+      radial-gradient(8px 3px at 18% 88%, var(--sun) 60%, transparent),
+      radial-gradient(3px 8px at 42% 6%, var(--grape) 60%, transparent),
+      radial-gradient(8px 3px at 92% 55%, var(--pink) 60%, transparent),
+      radial-gradient(3px 8px at 6% 45%, var(--mint) 60%, transparent);
+  }
+  main{position:relative;z-index:1;}
+
+  /* ---------- hero ---------- */
+  .cover{
+    text-align:center;
+    padding:4rem 1.25rem 3rem;
+    background:
+      radial-gradient(50rem 28rem at 50% -8%, rgba(255,79,163,.18), transparent 62%),
+      radial-gradient(30rem 18rem at 10% 80%, rgba(47,205,173,.14), transparent 65%),
+      radial-gradient(30rem 18rem at 92% 70%, rgba(255,201,58,.18), transparent 65%);
+  }
+  .issue-strip{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--grape);
+    display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;justify-content:center;
+    margin-bottom:1.5rem;
+  }
+  .issue-strip .dot{color:var(--pink);}
+  .masthead{
+    font-family:var(--display);
+    font-size:clamp(3rem, 11vw, 7.5rem);
+    line-height:.95;
+    background:linear-gradient(100deg, var(--pink) 5%, var(--peach) 30%, var(--sun) 50%, var(--mint) 72%, var(--grape) 95%);
+    background-size:200% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+    filter:drop-shadow(0 4px 0 rgba(255,79,163,.25)) drop-shadow(0 12px 26px rgba(122,79,216,.2));
+    animation:holo 8s linear infinite;
+  }
+  @keyframes holo{to{background-position:200% 0;}}
+  .masthead small{display:block;font-size:clamp(1.2rem,4vw,2.6rem);letter-spacing:.05em;}
+  .cover-sub{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;
+    font-size:clamp(1.3rem, 4.2vw, 2.3rem);letter-spacing:.16em;
+    color:var(--grape);margin-top:1rem;
+  }
+  .cover-tag{margin-top:.7rem;color:var(--pink);font-style:italic;font-weight:700;}
+
+  .cover-art{
+    margin:2.2rem auto 0;max-width:min(26rem, 82vw);
+    transform:rotate(1.5deg);transition:transform .25s ease;
+  }
+  .cover-art:hover{transform:rotate(0deg) scale(1.02);}
+  .cover-art img{
+    display:block;width:100%;height:auto;border-radius:1.2rem;
+    border:4px solid #fff;
+    box-shadow:0 0 0 3px var(--pink), 0 18px 44px rgba(122,79,216,.28);
+  }
+  .cover-art figcaption{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--grape);margin-top:.8rem;
+  }
+
+  .stickers{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center;max-width:56rem;margin:2.2rem auto 0;}
+  .sticker{
+    font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    font-size:.85rem;padding:.5rem .95rem;border-radius:999px;border:2.5px solid;
+    background:#fff;text-decoration:none;display:inline-block;
+    transition:transform .18s ease;
+  }
+  .sticker:hover{transform:translateY(-3px) rotate(-1.5deg);}
+  .sticker.pink{color:var(--pink);border-color:var(--pink);}
+  .sticker.mint{color:#0E9C82;border-color:var(--mint);}
+  .sticker.sun{color:#B77E00;border-color:var(--sun);}
+  .sticker.grape{color:var(--grape);border-color:var(--grape);}
+  .sticker.peach{color:#D96A1E;border-color:var(--peach);}
+
+  /* ---------- scallop divider (scoop edge) ---------- */
+  .scallop{display:block;width:100%;height:34px;margin-bottom:-1px;}
+
+  /* ---------- sections ---------- */
+  section{position:relative;}
+  .wrap{max-width:46rem;margin:0 auto;padding:4rem 1.4rem 4.4rem;}
+  .wrap.wide{max-width:64rem;}
+  .band-pink{background:var(--cream-2);}
+  .band-white{background:#fff;}
+  .band-mint{background:#E4FBF5;}
+  .band-sun{background:#FFF6DE;}
+  .band-grape{background:#F1EAFE;}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;color:var(--pink);
+  }
+  .eyebrow::before{content:"";width:2.2rem;height:3px;background:currentColor;border-radius:3px;}
+  h2{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;
+    font-size:clamp(2.1rem, 6vw, 3.4rem);line-height:1.02;letter-spacing:.02em;
+    margin-bottom:.4rem;color:var(--ink);
+  }
+  .deck{font-family:var(--head);font-weight:600;font-size:1.3rem;letter-spacing:.04em;margin-bottom:1.8rem;color:var(--grape);}
+  p{margin-bottom:1.05rem;}
+  p:last-child{margin-bottom:0;}
+  .pull{
+    font-family:var(--display);font-size:1.45rem;line-height:1.35;color:var(--pink);
+    border-left:5px solid var(--sun);
+    padding:.4rem 0 .4rem 1.2rem;margin:1.8rem 0;transform:rotate(-.5deg);
+  }
+  .warning{
+    font-family:var(--mono);font-size:.8rem;line-height:1.7;
+    background:#fff;border:2px dashed var(--pink);border-radius:.9rem;
+    padding:1rem 1.2rem;margin-top:1.6rem;
+  }
+
+  /* flavor cards */
+  .flavors{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:2.2rem;}
+  .flavor{
+    background:#fff;border-radius:1.1rem 1.1rem 1.1rem .25rem;
+    border:2.5px solid;padding:1.4rem 1.25rem;
+    transition:transform .18s ease;
+  }
+  .flavor:hover{transform:translateY(-4px) rotate(-.5deg);}
+  .flavor:nth-child(5n+1){border-color:var(--pink);}
+  .flavor:nth-child(5n+2){border-color:var(--mint);}
+  .flavor:nth-child(5n+3){border-color:var(--sun);}
+  .flavor:nth-child(5n+4){border-color:var(--grape);}
+  .flavor:nth-child(5n+5){border-color:var(--peach);}
+  .flavor .num{font-family:var(--display);font-size:1.5rem;line-height:1;display:block;margin-bottom:.35rem;color:var(--grape);}
+  .flavor h3{font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:1.25rem;margin-bottom:.4rem;}
+  .flavor p{font-size:.95rem;margin:0;}
+
+  /* findings */
+  .findings{margin:1.8rem 0;list-style:none;}
+  .findings li{
+    font-family:var(--head);font-weight:700;font-size:1.3rem;letter-spacing:.03em;
+    padding:.85rem 0 .85rem 2.3rem;position:relative;
+    border-bottom:2px dashed rgba(58,27,77,.16);
+  }
+  .findings li::before{content:"🍨";position:absolute;left:0;}
+
+  /* fact file & theories */
+  .theories{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin:2rem 0;}
+  .theory{background:#fff;border:2.5px solid var(--grape);border-radius:1rem;padding:1.3rem 1.2rem;}
+  .theory h4{font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;color:var(--grape);margin-bottom:.4rem;}
+  .theory p{font-size:.95rem;margin:0;}
+  .factfile{
+    background:var(--ink);color:var(--cream);
+    border-radius:1.1rem;padding:1.6rem 1.5rem;margin-top:2rem;
+    font-family:var(--mono);font-size:.85rem;line-height:2;
+  }
+  .factfile h4{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.18em;
+    font-size:1.15rem;color:var(--sun);margin-bottom:.7rem;
+  }
+  .factfile b{color:var(--pink);}
+  .quote{
+    font-family:var(--display);font-size:1.35rem;line-height:1.4;color:var(--grape);
+    text-align:center;margin-top:2rem;
+  }
+  .quote small{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;margin-top:.6rem;color:var(--ink);opacity:.6;}
+
+  /* discoveries */
+  .discoveries{list-style:none;margin:1.6rem 0;}
+  .discoveries li{padding:.5rem 0 .5rem 1.8rem;position:relative;font-weight:500;}
+  .discoveries li::before{content:"✨";position:absolute;left:0;}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.3rem;margin-top:2.4rem;}
+  .exhibit{background:#fff;border-radius:1rem;padding:.9rem .9rem 1.1rem;border:2.5px solid var(--pink);box-shadow:0 10px 26px rgba(122,79,216,.14);transition:transform .18s ease;}
+  .exhibit:hover{transform:translateY(-5px) rotate(.6deg);}
+  .exhibit img{width:100%;height:auto;display:block;border-radius:.6rem;background:var(--cream-2);}
+  .exhibit figcaption{font-family:var(--head);font-weight:700;font-size:1.05rem;letter-spacing:.03em;margin-top:.7rem;line-height:1.3;}
+  .exhibit figcaption span{display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);margin-bottom:.2rem;}
+
+  /* headlines ticker */
+  .headlines{list-style:none;margin-top:1.8rem;}
+  .headlines li{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+    font-size:clamp(1.25rem,3.4vw,1.7rem);
+    padding:.9rem 0;border-bottom:3px solid var(--ink);
+  }
+  .headlines li::before{content:"★ ";color:var(--pink);}
+
+  /* dream list / aura list */
+  .dreamlist{margin-top:1.8rem;}
+  .dreamlist dt{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+    font-size:1.25rem;color:var(--grape);margin-top:1.1rem;
+  }
+  .dreamlist dd{margin-left:0;padding-left:1.2rem;border-left:3px solid var(--sun);}
+
+  /* advice column */
+  .letter{
+    background:#fff;border-radius:1.1rem;border:2.5px solid var(--mint);
+    padding:1.7rem 1.6rem;margin-top:1.8rem;
+  }
+  .letter .from{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#0E9C82;margin-bottom:.8rem;}
+  .letter em{color:var(--grape);}
+  .reply{border-color:var(--pink);}
+  .reply .from{color:var(--pink);}
+
+  /* horoscoops */
+  .scopes{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin-top:2.2rem;}
+  .scope{background:#fff;border-radius:1rem;padding:1.3rem 1.2rem;border-top:6px solid;}
+  .scope:nth-child(5n+1){border-color:var(--pink);}
+  .scope:nth-child(5n+2){border-color:var(--mint);}
+  .scope:nth-child(5n+3){border-color:var(--sun);}
+  .scope:nth-child(5n+4){border-color:var(--grape);}
+  .scope:nth-child(5n+5){border-color:var(--peach);}
+  .scope h4{font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:1.15rem;margin-bottom:.35rem;}
+  .scope p{font-size:.95rem;margin:0;}
+
+  /* quick hits & news briefs */
+  .briefs{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.4rem;margin-top:2.2rem;}
+  .brief h3{
+    font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+    font-size:1.25rem;padding-bottom:.5rem;margin-bottom:.9rem;
+    border-bottom:3px solid var(--pink);
+  }
+  .brief p{font-size:.93rem;margin-bottom:.9rem;}
+  .brief p b{display:block;font-family:var(--head);font-weight:700;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;color:var(--grape);}
+
+  /* zilly */
+  .zilly{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;margin-top:2rem;}
+  .zilly img{
+    flex:1 1 16rem;max-width:20rem;width:100%;height:auto;border-radius:1.2rem;
+    border:4px solid #fff;box-shadow:0 0 0 3px var(--mint), 0 16px 40px rgba(47,205,173,.25);
+  }
+  .zilly .bio{flex:1 1 18rem;}
+  .zilly dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);margin-top:1rem;}
+  .zilly dd{margin:0;font-family:var(--head);font-weight:700;font-size:1.3rem;letter-spacing:.03em;}
+
+  /* teaser + footer */
+  .teasers{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.2rem;}
+  .teaser{
+    border:2.5px solid var(--grape);border-radius:1.2rem;padding:1.5rem 1.4rem;background:#fff;
+    display:flex;flex-direction:column;gap:.7rem;
+  }
+  .teaser h3{font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:1.35rem;color:var(--grape);}
+  .teaser p{margin:0;font-size:.95rem;flex:1;}
+  .teaser a{
+    align-self:flex-start;
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--pink);border:2px solid var(--pink);border-radius:999px;padding:.45rem 1rem;text-decoration:none;
+  }
+  footer{
+    background:var(--ink);color:var(--cream);
+    padding:3.2rem 1.4rem 3.6rem;text-align:center;
+  }
+  footer .motto{
+    font-family:var(--display);font-size:1.3rem;margin-bottom:.9rem;
+    background:linear-gradient(90deg,var(--pink),var(--sun),var(--mint));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  }
+  .disclaimer{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;opacity:.7;max-width:38rem;margin:0 auto 1.2rem;line-height:1.8;}
+  .barcode{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;opacity:.6;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    .reveal{opacity:1;transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+<div class="sprinkles" aria-hidden="true"></div>
+<main>
+
+  <!-- ============ COVER ============ -->
+  <section class="cover">
+    <div class="issue-strip">
+      <span>The Galactic Dessert Issue</span><span class="dot">✦</span>
+      <span>June 2026</span><span class="dot">✦</span>
+      <span>#1 Icecream Magazine in the Universe</span>
+    </div>
+    <h1 class="masthead">Aliens<small>Love Icecream</small></h1>
+    <div class="cover-sub">Ice cream is the universal language 🍧</div>
+    <p class="cover-tag">Magick Mica TV · Magick · Mysteries · Intergalactic Cravings · Starlight Magic</p>
+
+    <figure class="cover-art">
+      <img src="https://substackcdn.com/image/fetch/$s_!hpm1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F94394e7a-21b1-4eb4-bb0b-a906b519119a_4096x4096.jpeg" alt="The Galactic Dessert Issue cover art" loading="eager">
+      <figcaption>The Galactic Dessert Issue · June 2026</figcaption>
+    </figure>
+
+    <nav class="stickers" aria-label="Issue contents">
+      <a class="sticker pink" href="#cones">7 Cosmic Cones</a>
+      <a class="sticker mint" href="#bliss">Brain Freeze Bliss</a>
+      <a class="sticker sun" href="#moonpie">Moon Pie Mystery</a>
+      <a class="sticker grape" href="#sherbet">Sherbet: Alive?!</a>
+      <a class="sticker peach" href="#gallery">Art Gallery</a>
+      <a class="sticker pink" href="#zorp">Ask Auntie Zorp</a>
+      <a class="sticker mint" href="#horoscoops">Horoscoops</a>
+      <a class="sticker grape" href="#zilly">Meet Zilly</a>
+    </nav>
+  </section>
+
+  <!-- ============ 7 COSMIC CONES ============ -->
+  <svg class="scallop" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true"><path fill="#FFE4EF" d="M0,34 L0,17 A17,17 0 0 1 34,17 A17,17 0 0 1 68,17 A17,17 0 0 1 102,17 A17,17 0 0 1 136,17 A17,17 0 0 1 170,17 A17,17 0 0 1 204,17 A17,17 0 0 1 238,17 A17,17 0 0 1 272,17 A17,17 0 0 1 306,17 A17,17 0 0 1 340,17 A17,17 0 0 1 374,17 A17,17 0 0 1 408,17 A17,17 0 0 1 442,17 A17,17 0 0 1 476,17 A17,17 0 0 1 510,17 A17,17 0 0 1 544,17 A17,17 0 0 1 578,17 A17,17 0 0 1 612,17 A17,17 0 0 1 646,17 A17,17 0 0 1 680,17 A17,17 0 0 1 714,17 A17,17 0 0 1 748,17 A17,17 0 0 1 782,17 A17,17 0 0 1 816,17 A17,17 0 0 1 850,17 A17,17 0 0 1 884,17 A17,17 0 0 1 918,17 A17,17 0 0 1 952,17 A17,17 0 0 1 986,17 A17,17 0 0 1 1020,17 A17,17 0 0 1 1054,17 A17,17 0 0 1 1088,17 A17,17 0 0 1 1122,17 A17,17 0 0 1 1156,17 A17,17 0 0 1 1190,17 A17,17 0 0 1 1224,17 L1200,34 Z"/></svg>
+  <section id="cones" class="band-pink">
+    <div class="wrap wide reveal">
+      <div class="eyebrow">Flavor Files</div>
+      <h2>7 Cosmic Cones You Have To Try Before You Rebirth</h2>
+      <p class="deck">Bring napkins. And possibly a past-life regressionist.</p>
+
+      <div class="flavors">
+        <div class="flavor"><span class="num">1</span><h3>Nebula Nilla</h3><p>Swirls of vanilla, stardust, and a shockwave of cosmic sugar.</p></div>
+        <div class="flavor"><span class="num">2</span><h3>Supernova Strawberry</h3><p>Bright, bold, and exploding with berry brilliance.</p></div>
+        <div class="flavor"><span class="num">3</span><h3>Minty Meteor</h3><p>Cool mint with chunks of chocolate asteroid.</p></div>
+        <div class="flavor"><span class="num">4</span><h3>Black Hole Brownie</h3><p>So rich, even light can't escape.</p></div>
+        <div class="flavor"><span class="num">5</span><h3>Pluto's Peanut Butter</h3><p>A dwarf planet of nutty delight.</p></div>
+        <div class="flavor"><span class="num">6</span><h3>Galaxy Gumdrop</h3><p>Rainbow ripples with a chewy sugar surprise.</p></div>
+        <div class="flavor"><span class="num">7</span><h3>Moon Rock Marshmallow</h3><p>Fluffy, crunchy, and out of this world.</p></div>
+      </div>
+
+      <div class="warning">⚠ Warning: May cause extreme happiness, spontaneous giggles, and the urge to stargaze.</div>
+    </div>
+  </section>
+
+  <!-- ============ BRAIN FREEZE BLISS ============ -->
+  <svg class="scallop" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true" style="background:#FFE4EF"><path fill="#ffffff" d="M0,34 L0,17 A17,17 0 0 1 34,17 A17,17 0 0 1 68,17 A17,17 0 0 1 102,17 A17,17 0 0 1 136,17 A17,17 0 0 1 170,17 A17,17 0 0 1 204,17 A17,17 0 0 1 238,17 A17,17 0 0 1 272,17 A17,17 0 0 1 306,17 A17,17 0 0 1 340,17 A17,17 0 0 1 374,17 A17,17 0 0 1 408,17 A17,17 0 0 1 442,17 A17,17 0 0 1 476,17 A17,17 0 0 1 510,17 A17,17 0 0 1 544,17 A17,17 0 0 1 578,17 A17,17 0 0 1 612,17 A17,17 0 0 1 646,17 A17,17 0 0 1 680,17 A17,17 0 0 1 714,17 A17,17 0 0 1 748,17 A17,17 0 0 1 782,17 A17,17 0 0 1 816,17 A17,17 0 0 1 850,17 A17,17 0 0 1 884,17 A17,17 0 0 1 918,17 A17,17 0 0 1 952,17 A17,17 0 0 1 986,17 A17,17 0 0 1 1020,17 A17,17 0 0 1 1054,17 A17,17 0 0 1 1088,17 A17,17 0 0 1 1122,17 A17,17 0 0 1 1156,17 A17,17 0 0 1 1190,17 A17,17 0 0 1 1224,17 L1200,34 Z"/></svg>
+  <section id="bliss" class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Science-ish</div>
+      <h2>Brain Freeze Bliss</h2>
+      <p class="deck">The science of joy in every bite.</p>
+
+      <p>New research from the Galactic Dessert Institute suggests that ice cream triggers miniature bursts of happiness, nostalgia, and interdimensional comfort.</p>
+
+      <h3 style="font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:1.3rem;margin-top:1.8rem;">Key Findings</h3>
+      <ul class="findings">
+        <li>Cold treats increase creativity by up to 73.8%</li>
+        <li>Ice cream improves mood faster than warp-speed travel</li>
+        <li>Happiness is best served in a waffle cone</li>
+      </ul>
+
+      <p><strong>Conclusion:</strong> Ice cream isn't just dessert. It's a universal language. A universal mood upgrade.</p>
+
+      <blockquote class="pull">"We don't choose icecream. It chooses us."</blockquote>
+    </div>
+  </section>
+
+  <!-- ============ SCOOP SECRETS + TELEPATHY ============ -->
+  <section class="band-mint">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="color:#0E9C82">Classified</div>
+      <h2>Scoop Secrets</h2>
+      <p class="deck">How aliens decide our favorite flavors.</p>
+
+      <p>Ever wonder why your favorite flavor feels like it was made just for you? It might be.</p>
+      <p>Flavor curators from across the galaxy monitor taste trends, emotional frequencies, and dream data to deliver flavors that match your soul signature.</p>
+      <p>They call it: <strong>The Cosmic Craving Algorithm.</strong><br>We call it: <strong>Delicious destiny.</strong></p>
+
+      <div style="margin-top:2.8rem">
+        <div class="eyebrow" style="color:#0E9C82">Lab Report</div>
+        <h2 style="font-size:clamp(1.8rem,5vw,2.6rem)">Ice Cream Telepathy</h2>
+        <p class="deck">Can a sundae read your mind?</p>
+        <p>Scientists from Planet Gelato-9 believe some desserts may respond to emotional frequencies. Participants were asked to imagine their favorite flavor. Moments later, advanced telepathic sundae machines generated matching treats.</p>
+        <p>Coincidence? The debate continues.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEON TREATS ============ -->
+  <section class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Recipes</div>
+      <h2>Neon Treats</h2>
+      <p class="deck">Recipes from the farthest planets.</p>
+
+      <div class="flavors">
+        <div class="flavor"><h3>Electric Lemonade Lift</h3><p>Lemon ice cream, blue lightning syrup, and crystal star sprinkles.</p></div>
+        <div class="flavor"><h3>Rocket Road Rage</h3><p>Chocolate meteor chunks with molten cosmic caramel.</p></div>
+        <div class="flavor"><h3>Alien Bubblegum Blast</h3><p>A bright neon swirl of candy, stardust, and mystery.</p></div>
+      </div>
+
+      <div class="warning">⚠ Warning: May temporarily turn your tongue holographic.</div>
+    </div>
+  </section>
+
+  <!-- ============ MOON PIE MYSTERY ============ -->
+  <svg class="scallop" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true" style="background:#fff"><path fill="#FFF6DE" d="M0,34 L0,17 A17,17 0 0 1 34,17 A17,17 0 0 1 68,17 A17,17 0 0 1 102,17 A17,17 0 0 1 136,17 A17,17 0 0 1 170,17 A17,17 0 0 1 204,17 A17,17 0 0 1 238,17 A17,17 0 0 1 272,17 A17,17 0 0 1 306,17 A17,17 0 0 1 340,17 A17,17 0 0 1 374,17 A17,17 0 0 1 408,17 A17,17 0 0 1 442,17 A17,17 0 0 1 476,17 A17,17 0 0 1 510,17 A17,17 0 0 1 544,17 A17,17 0 0 1 578,17 A17,17 0 0 1 612,17 A17,17 0 0 1 646,17 A17,17 0 0 1 680,17 A17,17 0 0 1 714,17 A17,17 0 0 1 748,17 A17,17 0 0 1 782,17 A17,17 0 0 1 816,17 A17,17 0 0 1 850,17 A17,17 0 0 1 884,17 A17,17 0 0 1 918,17 A17,17 0 0 1 952,17 A17,17 0 0 1 986,17 A17,17 0 0 1 1020,17 A17,17 0 0 1 1054,17 A17,17 0 0 1 1088,17 A17,17 0 0 1 1122,17 A17,17 0 0 1 1156,17 A17,17 0 0 1 1190,17 A17,17 0 0 1 1224,17 L1200,34 Z"/></svg>
+  <section id="moonpie" class="band-sun">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="color:#B77E00">Cold Case</div>
+      <h2>The Great Moon Pie Mystery</h2>
+      <p class="deck">The missing dessert that vanished without a crumb.</p>
+      <p style="font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:1.6rem;">Orbit Sector 9, Galactic Archive</p>
+
+      <p>In the summer of 1987, one of the universe's most beloved desserts vanished without warning.</p>
+      <p>Known simply as <em>The Great Moon Pie</em>, the colossal confection measured nearly 700 miles across and served as both a tourist attraction and navigation landmark for dessert travelers. Then, overnight, it disappeared.</p>
+      <p>Official records describe a triple-layer marshmallow cream pie topped with crystallized stardust sugar and a buttery comet-crust.</p>
+      <p><strong>No debris. No crumbs. No explanation.</strong></p>
+      <p>Witnesses reported seeing flashes of glowing whipped cream light moments before the pie vanished from orbit. Thirty-nine years later, investigators are still searching for answers.</p>
+
+      <div class="theories">
+        <div class="theory"><h4>🐋 Space Whale Theory</h4><p>Some researchers believe the pie was consumed by a migrating cosmic whale.</p></div>
+        <div class="theory"><h4>🥧 Rogue Bakery Theory</h4><p>A secret underground baking syndicate may have stolen the dessert.</p></div>
+        <div class="theory"><h4>🌌 Dimensional Rift Theory</h4><p>The pie slipped through a frosting anomaly and entered another universe.</p></div>
+        <div class="theory"><h4>👽 Government Cover-Up</h4><p>The most controversial theory claims officials know exactly where the pie went.</p></div>
+      </div>
+
+      <div class="factfile">
+        <h4>Fact File</h4>
+        <b>Dessert Type:</b> Marshmallow Cream Pie<br>
+        <b>Size:</b> 700 Miles Wide<br>
+        <b>Last Seen:</b> Orbit Sector 9<br>
+        <b>Status:</b> Missing<br>
+        <b>Reward:</b> Unlimited sprinkles
+      </div>
+
+      <div class="quote">"Some mysteries are bigger than planets. This one was dessert."<small>— Galactic Investigation Bureau</small></div>
+    </div>
+  </section>
+
+  <!-- ============ RAINBOW SHERBET ============ -->
+  <section id="sherbet" class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Breaking Science</div>
+      <h2>The Secret Life of Rainbow Sherbet</h2>
+      <p class="deck">New evidence suggests sherbet may be alive.</p>
+
+      <p>For centuries, rainbow sherbet has delighted beings across the galaxy. But recent studies suggest it may be doing more than simply tasting delicious.</p>
+      <p>Researchers at the Institute of Frozen Curiosities conducted a six-month experiment involving positive affirmations and flavored desserts. The results were unexpected.</p>
+      <p>When complimented, samples of rainbow sherbet became brighter, softer, and produced sparkling sugar particles. When criticized, they became duller and occasionally generated tiny weather systems.</p>
+      <p>Scientists remain divided. Some insist the findings are evidence of consciousness. Others argue the sherbet is simply reacting to environmental conditions.</p>
+      <p><strong>The sherbet itself has declined all interview requests.</strong></p>
+
+      <h3 style="font-family:var(--head);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:1.3rem;margin-top:1.8rem;">Surprising Discoveries</h3>
+      <ul class="discoveries">
+        <li>Sherbet glows brighter when praised</li>
+        <li>Favorite music appears to be synth-pop</li>
+        <li>Dislikes freezer burn</li>
+        <li>Produces rainbows during emotional moments</li>
+        <li>Has never explained itself</li>
+      </ul>
+
+      <blockquote class="pull">"We're not saying sherbet is alive. We're simply saying it behaves suspiciously like something that is." — Dr. Luna Sprinkles</blockquote>
+
+      <div class="warning">💡 Did you know? A single scoop of rainbow sherbet contains over 7 million microscopic color crystals. No one knows why.</div>
+    </div>
+  </section>
+
+  <!-- ============ ART GALLERY ============ -->
+  <svg class="scallop" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true" style="background:#fff"><path fill="#F1EAFE" d="M0,34 L0,17 A17,17 0 0 1 34,17 A17,17 0 0 1 68,17 A17,17 0 0 1 102,17 A17,17 0 0 1 136,17 A17,17 0 0 1 170,17 A17,17 0 0 1 204,17 A17,17 0 0 1 238,17 A17,17 0 0 1 272,17 A17,17 0 0 1 306,17 A17,17 0 0 1 340,17 A17,17 0 0 1 374,17 A17,17 0 0 1 408,17 A17,17 0 0 1 442,17 A17,17 0 0 1 476,17 A17,17 0 0 1 510,17 A17,17 0 0 1 544,17 A17,17 0 0 1 578,17 A17,17 0 0 1 612,17 A17,17 0 0 1 646,17 A17,17 0 0 1 680,17 A17,17 0 0 1 714,17 A17,17 0 0 1 748,17 A17,17 0 0 1 782,17 A17,17 0 0 1 816,17 A17,17 0 0 1 850,17 A17,17 0 0 1 884,17 A17,17 0 0 1 918,17 A17,17 0 0 1 952,17 A17,17 0 0 1 986,17 A17,17 0 0 1 1020,17 A17,17 0 0 1 1054,17 A17,17 0 0 1 1088,17 A17,17 0 0 1 1122,17 A17,17 0 0 1 1156,17 A17,17 0 0 1 1190,17 A17,17 0 0 1 1224,17 L1200,34 Z"/></svg>
+  <section id="gallery" class="band-grape">
+    <div class="wrap wide reveal">
+      <div class="eyebrow" style="color:var(--grape)">Culture</div>
+      <h2>Alien Dessert Art Gallery</h2>
+      <p class="deck">Sweet creations from across the universe.</p>
+
+      <p>Every civilization expresses itself differently. Some paint. Some sculpt. Others create edible masterpieces. The annual Intergalactic Dessert Exhibition showcases towering castles made from cotton candy nebulae, chocolate asteroid sculptures, and living ice cream gardens.</p>
+
+      <div class="gallery">
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!mjwI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F45f08cd8-0565-4fd8-915f-f7b36aea9626_1200x1200.png" alt="Exhibit 1 artwork"><figcaption><span>Exhibit #1</span>"The Day The Sprinkles Learned To Fly"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!6mzT!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd31655f8-00d0-43c7-a09a-0fed3e1c9de4_1200x1200.png" alt="Exhibit 2 artwork"><figcaption><span>Exhibit #2</span>"Portrait of My Favorite Comet Before It Melted"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!Qck3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb2bb0a0d-7020-4525-8e5e-837e64e8a8ad_1200x1200.png" alt="Exhibit 3 artwork"><figcaption><span>Exhibit #3</span>"Self-Portrait While Thinking About Waffles"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!z6Dm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9eb56cbc-7c4d-4a46-8a41-ff70b364e85f_1200x1200.png" alt="Exhibit 4 artwork"><figcaption><span>Exhibit #4</span>"The Last Cherry On Saturn"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!wCvq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6e2e4b6a-d3e0-4d08-baaf-425c9316f9b8_1200x1200.png" alt="Exhibit 5 artwork"><figcaption><span>Exhibit #5</span>"Dreams Of A Sleeping Sundae"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!os9n!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4824944b-7eb8-4ad5-89cb-78e9d02b14d9_1200x1200.png" alt="Exhibit 6 artwork"><figcaption><span>Exhibit #6</span>"Ancient Dessert Gods Creating The First Cone"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!49HD!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75bbd3c6-d190-467a-acf3-5721c7d8e8fe_1200x1200.png" alt="Exhibit 7 artwork"><figcaption><span>Exhibit #7</span>"The Great Moon Pie Disappearance"</figcaption></figure>
+        <figure class="exhibit"><img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!NJB9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9fcb7d78-3c11-44b9-8807-7a906eb80ce6_1200x1170.png" alt="Exhibit 8 artwork"><figcaption><span>Exhibit #8</span>"We Remember The Flavor Of Stars"</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SWEET NEWS ============ -->
+  <section class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Newswire</div>
+      <h2>Sweet News From The Stars</h2>
+      <p class="deck">Galactic dessert headlines.</p>
+      <ul class="headlines">
+        <li>Universal Dessert Day announced for August 1st</li>
+        <li>Scientists discover chocolate comet near the Milky Way</li>
+        <li>Sharing ice cream linked to increased galactic peace</li>
+        <li>Alien children vote "Sprinkles For President"</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SPRINKLES ARCHAEOLOGY ============ -->
+  <section class="band-pink">
+    <div class="wrap reveal">
+      <div class="eyebrow">Archaeology</div>
+      <h2>Why Aliens Invented Sprinkles</h2>
+      <p class="deck">Archaeologists uncover sweet evidence from the dawn of civilization.</p>
+
+      <p>For centuries, historians believed sprinkles were simply decorative toppings invented to make desserts more colorful. <strong>They were wrong.</strong></p>
+      <p>A recent excavation beneath the Frost Rings of Saturn uncovered fossilized rainbow sprinkles dating back nearly four million years. The discovery suggests ancient civilizations may have used sprinkles as currency, ceremonial offerings, and possibly even interplanetary navigation tools.</p>
+      <blockquote class="pull">"We found entire temples built around giant sprinkle formations." — Professor Blip Zargon, Cosmic Culinary Institute</blockquote>
+      <p>Researchers are now working to decode mysterious sprinkle patterns believed to contain messages from an extinct dessert culture. One thing is certain: the universe has always loved a little extra sparkle.</p>
+    </div>
+  </section>
+
+  <!-- ============ ICECREAM DREAMS ============ -->
+  <section class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Dream Lab</div>
+      <h2>Icecream Dreams Explained</h2>
+      <p class="deck">What your favorite flavor reveals about your alternate-universe self.</p>
+
+      <p>According to dream analysts, every flavor contains subconscious frequencies. If you dream about:</p>
+      <dl class="dreamlist">
+        <dt>Strawberry</dt><dd>You are probably royalty in another timeline.</dd>
+        <dt>Mint Chocolate Chip</dt><dd>You secretly command a fleet of crystal dragons.</dd>
+        <dt>Cookie Dough</dt><dd>You have unfinished business with a talking raccoon.</dd>
+        <dt>Bubblegum</dt><dd>You once ruled a candy kingdom.</dd>
+        <dt>Vanilla</dt><dd>You know something important but haven't remembered it yet.</dd>
+      </dl>
+      <p style="margin-top:1.6rem">Experts recommend keeping an <strong>Icecream Dream Journal</strong> beside your bed.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUICK HITS ============ -->
+  <section class="band-mint">
+    <div class="wrap wide reveal">
+      <div class="eyebrow" style="color:#0E9C82">Dispatches</div>
+      <h2>Field Reports From The Freezer Frontier</h2>
+      <p class="deck">Four stories our correspondents refuse to retract.</p>
+
+      <div class="briefs">
+        <div class="brief">
+          <h3>🚨 Giant Waffle Cone Orbiting Saturn</h3>
+          <p>Astronomers recently detected a rotating structure near Saturn. Initial reports suggested a new moon. Closer inspection revealed a colossal waffle cone floating through space — over 900 miles long, emitting a faint aroma of vanilla. Researchers remain puzzled by its origin. One intern has already attempted to eat it. Scientists call it "unexpected but delicious."</p>
+        </div>
+        <div class="brief">
+          <h3>🛸 UFO or Float?</h3>
+          <p>Residents of several planets recently reported glowing circular objects floating silently through the night sky. Investigators launched a full inquiry. The objects were eventually identified as root beer floats. Nobody knows how they became airborne. Experts advise citizens not to chase floating desserts unless accompanied by a licensed astronomer.</p>
+        </div>
+        <div class="brief">
+          <h3>🖌️ Inside The Galactic Frosting Museum</h3>
+          <p>Hidden among the Crystal Nebulas sits one of the universe's most prestigious museums, where every sculpture is made entirely from frosting. Popular exhibits include <b>The Birth of Sprinkles</b> — an enormous frosting recreation of the first rainbow sprinkle — <b>The Melting Point of Time</b> — a giant sundae slowly melting over 300 years — and <b>Dreams of Bubblegum Giants</b>, an immersive candy landscape visitors can walk through. Admission includes complimentary glitter cones.</p>
+        </div>
+        <div class="brief">
+          <h3>🍒 Confessions of a Cosmic Cherry</h3>
+          <p>Everyone thinks being a sundae cherry is glamorous. It's not. The pressure is immense. One wrong bounce and you're rolling down three scoops of icecream into a crowd of tourists. People expect perfection. Shine. Symmetry. Stem posture. Some days, I wish I could just be a grape. 🍇</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUNTIE ZORP ============ -->
+  <section id="zorp" class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Advice</div>
+      <h2>Ask Auntie Zorp</h2>
+      <p class="deck">Cosmic advice column.</p>
+
+      <div class="letter">
+        <div class="from">Incoming transmission</div>
+        <p><em>Dear Auntie Zorp,</em></p>
+        <p>My boyfriend says chocolate and strawberry should never be mixed. Should I leave him?</p>
+        <p>— Concerned on Planet Scoopia</p>
+      </div>
+
+      <div class="letter reply">
+        <div class="from">Auntie Zorp replies</div>
+        <p><em>Dear Concerned,</em></p>
+        <p>Relationships require compromise. However, denying the existence of chocolate-covered strawberries is a serious character flaw.</p>
+        <p><strong>Proceed with caution.</strong></p>
+        <p>— Auntie Zorp 👽</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOROSCOOPS ============ -->
+  <section id="horoscoops" class="band-pink">
+    <div class="wrap wide reveal">
+      <div class="eyebrow">Destiny Desk</div>
+      <h2>Horoscoops 🌟</h2>
+      <p class="deck">Your flavor forecast for the month.</p>
+
+      <div class="scopes">
+        <div class="scope"><h4>Vanilla</h4><p>A surprising opportunity arrives disguised as a snack.</p></div>
+        <div class="scope"><h4>Rocky Road</h4><p>Avoid emotional meteor showers this week.</p></div>
+        <div class="scope"><h4>Bubblegum Blast</h4><p>Someone from your past returns with exciting news.</p></div>
+        <div class="scope"><h4>Cosmic Cherry</h4><p>Trust your instincts. Especially around vending machines.</p></div>
+        <div class="scope"><h4>Galaxy Gumdrop</h4><p>A wish you've forgotten about begins coming true.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AURA ============ -->
+  <section class="band-white">
+    <div class="wrap reveal">
+      <div class="eyebrow">Vibe Check</div>
+      <h2>What Your Favorite Flavor Says About Your Aura 💖</h2>
+      <p class="deck">The cone knows.</p>
+
+      <dl class="dreamlist">
+        <dt>Galaxy Gumdrop</dt><dd>You believe magic is hiding everywhere.</dd>
+        <dt>Moon Rock Marshmallow</dt><dd>You collect beautiful memories like treasures.</dd>
+        <dt>Black Hole Brownie</dt><dd>You look mysterious but cry during cute movies.</dd>
+        <dt>Nebula Nilla</dt><dd>You are a comfort to everyone around you.</dd>
+        <dt>Supernova Strawberry</dt><dd>You turn ordinary days into adventures.</dd>
+        <dt>Minty Meteor</dt><dd>Your brain moves faster than light.</dd>
+        <dt>Pluto's Peanut Butter</dt><dd>You never forget the people you love.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ NEWS BRIEF COLUMNS ============ -->
+  <section class="band-grape">
+    <div class="wrap wide reveal">
+      <div class="eyebrow" style="color:var(--grape)">The Back Pages</div>
+      <h2>Tabloid Chaos &amp; Cosmic Briefs</h2>
+      <p class="deck">Everything else our editors couldn't stop us from printing.</p>
+
+      <div class="briefs">
+        <div class="brief">
+          <h3>🍦 Extreme Flavor Incidents</h3>
+          <p><b>The Day Icecream Rained on Venus</b>Citizens report soft-serve precipitation lasting 3.2 hours. Scientists call it "partially delicious, mostly alarming."</p>
+          <p><b>Emergency Recall of Galaxy Swirl #7</b>Contains unstable glitter particles that cause spontaneous dance outbreaks.</p>
+          <p><b>The Forbidden Flavor That Glows When Lied To</b>Authorities refuse to confirm its existence… which is suspicious.</p>
+          <p><b>Why the Universe Keeps Melting at 3 PM Galactic Time</b>Astrophysicists trace the phenomenon back to a broken icecream dimension.</p>
+        </div>
+        <div class="brief">
+          <h3>👽 Celebrity Aliens &amp; Pop Culture</h3>
+          <p><b>Zorp-9's Controversial Icecream Documentary Goes Viral</b>Critics say it "changes how you feel about sprinkles forever."</p>
+          <p><b>Princess Nebula Launches Her Own Cone Line</b>Each flavor based on a different emotional breakdown.</p>
+          <p><b>The Intergalactic Icecream Council's Biggest Scandal Yet</b>Someone replaced the Supreme Scoop with frozen mashed potatoes.</p>
+          <p><b>Comet Lolly Releases Breakup Album "Mint Condition Heartache"</b></p>
+        </div>
+        <div class="brief">
+          <h3>🧠 Strange Science Breakthroughs</h3>
+          <p><b>Scientists Discover Icecream Has Memory</b>Your childhood flavors may still be thinking about you.</p>
+          <p><b>The Cone That Predicts the Future (Sometimes Incorrectly On Purpose)</b>Accuracy rate: emotionally satisfying but legally questionable.</p>
+          <p><b>Why Antimatter Tastes Like Strawberry (According to One Intern)</b>Peer review currently pending survival of intern.</p>
+          <p><b>New Study Confirms Spoon Physics Are "Vaguely Sentient"</b></p>
+        </div>
+        <div class="brief">
+          <h3>🌈 Glitter Life &amp; Y2K Cosmic Teen Mag</h3>
+          <p><b>How to Build a MySpace Page for Your Pet Asteroid</b>Top background glitter GIFs included.</p>
+          <p><b>Scene Queen Astronauts: The New Fashion Frontier</b>Lip gloss remains fully functional in zero gravity.</p>
+          <p><b>Ranking Every Planet Based on How Good It Would Look in a Mirror Selfie</b></p>
+          <p><b>Quiz: What Kind of Cosmic Dessert Are You When You Cry?</b></p>
+        </div>
+        <div class="brief">
+          <h3>🌙 Cosmic Mythology &amp; Lore</h3>
+          <p><b>The Ancient Prophecy of the Eternal Sundae</b>Said to appear when three comets align over a drive-thru in space.</p>
+          <p><b>The Moon's Secret Second Face is Made of Marshmallow</b>NASA refuses to comment.</p>
+          <p><b>Legend of the First Icecream Volcano on Planet Snaxaria</b>Still erupts every 4,000 years with blueberry lava.</p>
+          <p><b>The Star That Whispers Dessert Recipes to Dreamers</b></p>
+        </div>
+        <div class="brief">
+          <h3>✨ Breaking News</h3>
+          <p><b>BREAKING: Entire City Temporarily Turns Into Gelato</b>Officials ask residents not to lick government buildings.</p>
+          <p><b>UFO Mistaken for Flying Banana Split Causes Traffic Jam in Orion Belt</b></p>
+          <p><b>Local Time Traveler Only Uses Powers to Fix Melted Icecream</b></p>
+          <p><b>Mass Hysteria After Everyone Dreams the Same Flavor Last Night</b></p>
+          <p><b>Alien Cat Appointed Supreme Taste Tester of the Universe</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ZILLY ============ -->
+  <section id="zilly" class="band-white">
+    <div class="wrap wide reveal">
+      <div class="eyebrow">Staff</div>
+      <h2>Meet Zilly 👽</h2>
+      <p class="deck">Our official dessert ambassador.</p>
+
+      <div class="zilly">
+        <img loading="lazy" src="https://substackcdn.com/image/fetch/$s_!1vYP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F707f514d-2697-4152-9d54-4731eb3dc5e8_1800x1546.png" alt="Zilly, the dessert ambassador">
+        <div class="bio">
+          <p>Zilly travels the galaxy in search of the perfect scoop and the kindest hearts.</p>
+          <dl>
+            <dt>Favorite flavor</dt><dd>Galaxy Gumdrop</dd>
+            <dt>Life mission</dt><dd>Spread joy, one cone at a time.</dd>
+            <dt>Fun fact</dt><dd>Zilly can lick faster than the speed of light.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MORE ISSUES ============ -->
+  <section class="band-pink">
+    <div class="wrap wide reveal">
+      <div class="eyebrow">More From Magick Mica TV</div>
+      <h2>Keep Reading</h2>
+      <div class="teasers" style="margin-top:1.8rem">
+        <div class="teaser">
+          <h3>Aliens Love Icecream #2</h3>
+          <p>The Meltdown Files — melting planets, dessert-hungry UFOs, icecream telepathy upgrades, and secret recipes guarded by pastry monks. August 2026.</p>
+          <a href="aliens-love-icecream.html">Read the issue →</a>
+        </div>
+        <div class="teaser">
+          <h3>Cosmic Stellar Drive</h3>
+          <p>Pyramids that power the universe, crystal starseeds, the legendary Crystal Queen, and full throttle through time &amp; galaxy. July 2026.</p>
+          <a href="cosmic-stellar-drive.html">Read the issue →</a>
+        </div>
+        <div class="teaser">
+          <h3>Read on Substack</h3>
+          <p>This issue lives at MagickMica TV on Substack — subscribe for new transmissions, artwork, and intergalactic cravings.</p>
+          <a href="https://magickmica.substack.com/p/aliens-love-icecream-june-2026">Original post →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="motto">Ice cream is the universal language.</p>
+    <p class="disclaimer">This publication is intended for entertainment purposes only. Reports of alien activity, cosmic desserts, and interstellar scoop distribution should not be considered factual — unless you believe in fun.</p>
+    <p class="barcode">The Galactic Dessert Issue · June 2026 · Magick Mica TV ✨🍦👽</p>
+  </footer>
+
+</main>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
