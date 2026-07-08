@@ -314,6 +314,39 @@
     .reveal{opacity:1;transform:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* ── sticky feature topbar ── */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    display:flex;align-items:center;gap:.4rem;justify-content:center;flex-wrap:wrap;
+    padding:.6rem 4.6rem;
+    background:rgba(11,16,38,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(127,180,255,.25);
+    box-shadow:0 4px 20px rgba(0,0,0,.35);
+  }
+  .topbar .brandmini{
+    font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--moongold);margin-right:.5rem;white-space:nowrap;opacity:.9;
+  }
+  .topbar a{
+    font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+    text-decoration:none;color:var(--silver);
+    padding:.42rem .85rem;border-radius:999px;border:1px solid transparent;
+    transition:color .18s ease, border-color .18s ease, background .18s ease;white-space:nowrap;
+  }
+  .topbar a:hover{color:var(--midnight);background:var(--starblue);border-color:var(--starblue);}
+  .topbar a.on{color:var(--midnight);border-color:var(--starblue);}
+  .topbar a.a-star:hover,.topbar a.a-star.on{background:var(--starblue);border-color:var(--starblue);}
+  .topbar a.a-pyr:hover,.topbar a.a-pyr.on{background:var(--dreampink);border-color:var(--dreampink);}
+  .topbar a.a-god:hover,.topbar a.a-god.on{background:var(--lilac);border-color:var(--lilac);}
+  @media (max-width:560px){
+    .topbar{padding:.55rem .8rem;gap:.3rem;}
+    .topbar .brandmini{width:100%;text-align:center;margin:0 0 .2rem;}
+    .topbar a{font-size:.56rem;padding:.38rem .7rem;letter-spacing:.08em;}
+  }
+  /* offset anchor jumps so the sticky bar doesn't cover headings */
+  section[id]{scroll-margin-top:4.2rem;}
 </style>
 </head>
 <body>
@@ -321,8 +354,16 @@
 <div class="sky" aria-hidden="true"><div class="stars"></div><div class="comet"></div><div class="comet"></div></div>
 <main>
 
+  <!-- ============ STICKY FEATURE NAV ============ -->
+  <nav class="topbar" aria-label="Feature navigation">
+    <span class="brandmini">☽ Stargazer</span>
+    <a class="a-star" href="#top">Stargazer</a>
+    <a class="a-pyr" href="#pyramids">Pyramid Prayers</a>
+    <a class="a-god" href="#goddess">Vivid Goddess</a>
+  </nav>
+
   <!-- ============ COVER ============ -->
-  <section class="cover">
+  <section class="cover" id="top">
     <div class="issue-strip">
       <span>Magick Mica TV</span><span class="dot">✦</span>
       <span>June 2026</span><span class="dot">✦</span>
@@ -745,6 +786,20 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.06});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script>
+(function(){
+  var map=[{id:'pyramids',sel:'.a-pyr'},{id:'goddess',sel:'.a-god'},{id:'top',sel:'.a-star'}];
+  var links={}; map.forEach(function(m){links[m.id]=document.querySelector(m.sel);});
+  var secs=map.map(function(m){return document.getElementById(m.id);}).filter(Boolean);
+  function clear(){Object.values(links).forEach(function(l){l&&l.classList.remove('on');});}
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){clear();var l=links[e.target.id];if(l)l.classList.add('on');}
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){obs.observe(s);});
+})();
 </script>
 </body>
 </html>
